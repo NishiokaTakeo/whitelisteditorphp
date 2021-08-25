@@ -41,8 +41,10 @@ export class AppComponent  implements OnInit {
 
 	handleKeyUp(e: any){
 		
-		this.keyword = this.keyword || '';
-
+		this.keyword = (this.keyword || '').trim();
+		this.messageClass= [];
+		this.errormessage = ''
+		
 		// if(e.keyCode === 13)
 		if(this.keyword.length > 2)
 		{
@@ -68,7 +70,7 @@ export class AppComponent  implements OnInit {
 	 check(): boolean
 	 {
 
-		let formatAddress : RegExp = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/
+		let formatAddress : RegExp = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,3})$/
 		let formatdomain: RegExp = /^[^@\s]+\.[^@\s]+$/
 		
 		if (
